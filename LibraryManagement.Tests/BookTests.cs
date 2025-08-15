@@ -44,5 +44,34 @@ namespace LibraryManagement.Tests
 
             Assert.That(book1.IsAvailable, Is.True);
         }
+
+        [Test]
+        public void ToString_ReturnsCorrectFormat()
+        {
+            var expected = "Pride and Prejudice by Jane Austen | Available: True";
+            Assert.That(book1.ToString(), Is.EqualTo(expected));
+
+            book1.Borrow();
+            expected = "Pride and Prejudice by Jane Austen | Available: False";
+            Assert.That(book1.ToString(), Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void BorrowAndReturn_MultipleTimes()
+        {
+            // Borrow once
+            Assert.That(book3.Borrow(), Is.True);
+            Assert.That(book3.IsAvailable, Is.False);
+
+            // Return
+            book3.Return();
+            Assert.That(book3.IsAvailable, Is.True);
+
+            // Borrow again
+            Assert.That(book3.Borrow(), Is.True);
+            Assert.That(book3.IsAvailable, Is.False);
+        }
+
+
     }
 }
