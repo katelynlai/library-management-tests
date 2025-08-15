@@ -2,7 +2,7 @@
 
 ### Project Overview
 
-This project contains NUnit tests for the LibraryManagement system. It tests: 
+This project contains NUnit tests for the Library Management system. It tests: 
 - Book: borrowing, returning, availability
 - Patron: borrowing and returning books
 - Library: adding/removing books and patrons, searching books and borrowing and returning books
