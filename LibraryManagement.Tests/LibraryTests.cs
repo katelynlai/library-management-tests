@@ -34,7 +34,7 @@ namespace LibraryManagement.Tests
         }
 
         [Test]
-        public void BorrowBook_AndReturnBook_WorksCorrectly()
+        public void BorrowBook_AndReturnBook()
         {
             var borrowResult = library.BorrowBook(patron1, book1);
             Assert.That(borrowResult, Is.True);
@@ -48,7 +48,7 @@ namespace LibraryManagement.Tests
         }
 
         [Test]
-        public void BorrowBook_AlreadyBorrowed_ReturnsFalse()
+        public void BorrowBook_AlreadyBorrowed()
         {
             library.BorrowBook(patron1, book1);
 
@@ -58,7 +58,7 @@ namespace LibraryManagement.Tests
         }
 
         [Test]
-        public void AddAndRemoveBook_WorksCorrectly()
+        public void AddAndRemoveBook()
         {
             var book4 = new Book("New Book", "New Author");
             library.AddBook(book4);
@@ -69,7 +69,7 @@ namespace LibraryManagement.Tests
         }
 
         [Test]
-        public void AddAndRemovePatron_WorksCorrectly()
+        public void AddAndRemovePatron()
         {
             var patron3 = new Patron("Charlie");
             library.AddPatron(patron3);
@@ -80,14 +80,14 @@ namespace LibraryManagement.Tests
         }
 
         [Test]
-        public void SearchBook_ByTitleAndAuthor_ReturnsCorrectBook()
+        public void SearchBook_ByTitleAndAuthor()
         {
             Assert.That(library.GetBookByTitle("Pride and Prejudice"), Is.EqualTo(book1));
             Assert.That(library.GetBookByAuthor("Jane Austen"), Is.EqualTo(book1));
         }
 
         [Test]
-        public void SearchBook_NotFound_ReturnsNull()
+        public void SearchBook_NotFound()
         {
             Assert.That(library.GetBookByTitle("Nonexistent Title"), Is.Null);
             Assert.That(library.GetBookByAuthor("Unknown Author"), Is.Null);
